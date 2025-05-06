@@ -120,3 +120,25 @@
     }
   }
   
+  /* Priority Colors */
+.priority {
+    padding: 0.3em 0.6em;
+    border-radius: 0.3em;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .priority.low {
+    background-color: green;
+  }
+  
+  .priority.medium {
+    background-color: orange;
+  }
+  
+  .priority.high {
+    background-color: red;
+  }
+  

@@ -81,3 +81,50 @@ function loadTheme() {
     toggleDark.textContent = "🌙";
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const taskForm = document.getElementById("task-form");
+    const taskInput = document.getElementById("task-input");
+    const taskList = document.getElementById("task-list");
+    const prioritySelect = document.getElementById("priority-select");
+  
+    taskForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+  
+      const taskText = taskInput.value.trim();
+      const priority = prioritySelect.value;
+  
+      if (taskText === "") return;
+  
+      const li = document.createElement("li");
+      li.innerHTML = `
+        ${taskText}
+        <span class="priority ${priority}">${priority}</span>
+        <button class="delete">✖</button>
+      `;
+  
+      taskList.appendChild(li);
+      taskInput.value = "";
+      prioritySelect.value = "medium";
+  
+      saveTasks();
+    });
+  
+    taskList.addEventListener("click", (e) => {
+      if (e.target.classList.contains("delete")) {
+        e.target.parentElement.remove();
+        saveTasks();
+      }
+    });
+  
+    function saveTasks() {
+      localStorage.setItem("tasks", taskList.innerHTML);
+    }
+  
+    function loadTasks() {
+      taskList.innerHTML = localStorage.getItem("tasks") || "";
+    }
+  
+    loadTasks();
+  });
+  

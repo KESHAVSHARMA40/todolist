@@ -1,0 +1,122 @@
+/* Root styles for light and dark modes */
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #222;
+    --container-bg: #fff;
+    --button-bg: #222;
+    --button-color: #fff;
+    --input-border: #ccc;
+  }
+  
+  body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f1f1f1;
+    --container-bg: #1e1e1e;
+    --button-bg: #f1f1f1;
+    --button-color: #121212;
+    --input-border: #444;
+  }
+  
+  /* Base Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+  }
+  
+  .container {
+    background-color: var(--container-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  #toggle-dark {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  input[type="text"],
+  input[type="date"] {
+    padding: 0.8rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: var(--text-color);
+  }
+  
+  button[type="submit"] {
+    padding: 0.8rem;
+    background-color: var(--button-bg);
+    color: var(--button-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    opacity: 0.9;
+  }
+  
+  /* Task List */
+  #task-list {
+    list-style: none;
+  }
+  
+  #task-list li {
+    padding: 0.8rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    margin-bottom: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    color: var(--text-color);
+  }
+  
+  /* Responsive */
+  @media (max-width: 480px) {
+    .container {
+      padding: 1rem;
+    }
+  
+    form {
+      gap: 0.6rem;
+    }
+  }
+  
